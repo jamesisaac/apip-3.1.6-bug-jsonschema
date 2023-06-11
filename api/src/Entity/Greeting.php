@@ -14,12 +14,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  * This is a dummy entity. Remove it!
  */
 #[ApiResource(
-    normalizationContext: ['groups' => ['Greeting']],
+    normalizationContext: ['groups' => ['Simple']],
     operations: [
         new Get(
             // Custom Provider here which presents the Greeting as a GreetingOverview
             output: GreetingOverviewDto::class,
-            normalizationContext: ['groups' => ['GreetingOverview']],
+            normalizationContext: ['groups' => ['Advanced']],
         ),
         new Post(),
     ]
@@ -34,8 +34,8 @@ class Greeting
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
     #[Serializer\Groups([
-        'Greeting',
-        'GreetingOverview',
+        'Simple',
+        'Advanced',
     ])]
     private ?int $id = null;
 
@@ -45,8 +45,8 @@ class Greeting
     #[ORM\Column]
     #[Assert\NotBlank]
     #[Serializer\Groups([
-        'Greeting',
-        'GreetingOverview',
+        'Simple',
+        'Advanced',
     ])]
     public string $name = '';
 

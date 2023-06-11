@@ -17,12 +17,12 @@ class GreetingOverviewDto
 {
     public function __construct(
         #[Serializer\Groups([
-            'GreetingOverview',
+            'Advanced',
         ])]
         public Greeting $greeting,
 
         #[Serializer\Groups([
-            'GreetingOverview',
+            'Advanced',
         ])]
         public int $viewCount
     ) {
